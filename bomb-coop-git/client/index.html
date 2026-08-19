@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BOMB CO-OP</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="screen-lobby" class="screen active">
+  <h1>💣 BOMB CO-OP</h1>
+  <div class="lobby-box">
+    <button id="btn-create">สร้างห้องใหม่</button>
+    <div class="divider">หรือ</div>
+    <input id="input-code" placeholder="กรอกรหัสห้อง 6 หลัก" maxlength="6" />
+    <button id="btn-join">เข้าห้อง</button>
+  </div>
+  <p id="lobby-message"></p>
+</div>
+
+<div id="screen-waiting" class="screen">
+  <h2>รหัสห้อง: <span id="room-code-display"></span></h2>
+  <p>คุณคือ: <span id="role-display"></span></p>
+  <p id="ready-status">รอผู้เล่นอีกฝั่ง...</p>
+  <button id="btn-ready">พร้อมแล้ว (Ready)</button>
+</div>
+
+<div id="screen-game" class="screen">
+  <div id="hud">
+    <div id="timer">05:00</div>
+    <div id="strikes">Strikes: <span id="strike-count">0</span> / 3</div>
+  </div>
+
+  <div id="player-a-view" class="player-view">
+    <h2>💣 ระเบิด (Bomb Handler)</h2>
+    <div id="modules-container"></div>
+  </div>
+
+  <div id="player-b-view" class="player-view">
+    <h2>📖 คู่มือ (Expert Manual)</h2>
+    <div id="manual-container">
+      <section>
+        <h3>Wire Module</h3>
+        <ul>
+          <li>ถ้าไม่มีสายสีแดงเลย → ตัดสาย <b>เส้นที่ 2</b></li>
+          <li>ถ้าสายเส้นสุดท้ายเป็นสีขาว → ตัด <b>เส้นสุดท้าย</b></li>
+          <li>ถ้ามีสายสีแดงมากกว่า 1 เส้น → ตัดสาย <b>สีแดงเส้นสุดท้าย</b></li>
+          <li>นอกเหนือจากนี้ → ตัด <b>เส้นแรก</b></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Button Module</h3>
+        <ul>
+          <li>ปุ่ม <b>สีแดง</b> ข้อความ <b>DETONATE</b> → กดค้างไว้ แล้วปล่อยตอนตัวเลขนับถอยหลังลงท้ายด้วย <b>5</b></li>
+          <li>ปุ่ม <b>สีน้ำเงิน</b> (ข้อความอะไรก็ได้) → กดครั้งเดียวแล้วปล่อยทันที</li>
+          <li>นอกเหนือจากนี้ → กดค้างไว้อย่างน้อย <b>3 วินาที</b> แล้วค่อยปล่อย</li>
+        </ul>
+      </section>
+      <p class="manual-hint">ให้ Player A อธิบายสี/ข้อความที่เห็นทางเสียง (นอกเกม) แล้วดูกฎด้านบนเพื่อบอกวิธีแก้</p>
+    </div>
+  </div>
+</div>
+
+<div id="screen-end" class="screen">
+  <h1 id="end-title"></h1>
+  <p id="end-detail"></p>
+  <button id="btn-restart">กลับหน้าหลัก</button>
+</div>
+
+<script src="client.js"></script>
+</body>
+</html>

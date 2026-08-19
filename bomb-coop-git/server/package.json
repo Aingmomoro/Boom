@@ -1,0 +1,15 @@
+{
+  "name": "bomb-coop-server",
+  "version": "0.1.0",
+  "description": "Bomb Co-op relay/game-state server (Node.js + ws) for Render.com",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "dependencies": {
+    "ws": "^8.17.0"
+  }
+}
